@@ -1,4 +1,6 @@
-﻿using FirstProgram1.Properties;
+﻿using DomainLayer.Models;
+using InfastructureLayer.Repositories;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +13,59 @@ using System.Windows.Forms;
 
 namespace FirstProgram1
 {
-    public partial class Form2 : Form
+    public partial class Form2 : MaterialForm
     {
-        public Form2()
+        public readonly IProgramRepository? dbContext;
+        internal Form1 Form1;
+
+        public Form2(IProgramRepository? dbContext)
         {
             InitializeComponent();
+            this.dbContext = dbContext;
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            var entity = Form1.ProgramEntity;
+
+            if (Form1.isEdit)
+            {
+                entity.ProgramName = textBoxProgramName.Text;
+                entity.Description = textBoxProgramDescription.Text;
+                entity.Department = textBoxProgramDepartment.Text;
+
+                dbContext.Update(entity);
+            }
+            else
+            {
+                entity = new DomainLayer.Models.Program
+                {
+                    ProgramName = textBoxProgramName.Text,
+                    Description = textBoxProgramDescription.Text,
+                    Department = textBoxProgramDepartment.Text,
+                };
+
+                dbContext.Add(entity);
+            }
+            dbContext.Save();
+
+            MessageBox.Show("Program is added successfully.",
+                "Adding Program",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            Form1.getPrograms();
+            Hide();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            textBoxName.Text = Settings.Default.Name;
-            textBoxProgram.Text = Settings.Default.Program;
+            if (Form1.isEdit)
+            {
+                textBoxProgramName.Text = Form1.ProgramEntity.ProgramName;
+                textBoxProgramDescription.Text = Form1.ProgramEntity.Description;
+                textBoxProgramDepartment.Text = Form1.ProgramEntity.Department;
+            }
         }
     }
 }

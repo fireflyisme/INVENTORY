@@ -9,6 +9,8 @@ namespace FirstProgram1
     public partial class Form1 : MaterialForm
     {
         public readonly IProgramRepository dbContext;
+        public bool isEdit = false;
+        public DomainLayer.Models.Program ProgramEntity;
         public Form1(IProgramRepository dbContext)
         {
             InitializeComponent();
@@ -21,8 +23,31 @@ namespace FirstProgram1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            getPrograms();
+        }
+
+        public void getPrograms()
+        {
             var programs = dbContext.GetAll();
             dataGridView1.DataSource = programs;
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            var form2 = new Form2(dbContext);
+            form2.Form1 = this;
+            form2.ShowDialog();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = dataGridView1.DataSource;
+            ProgramEntity = (DomainLayer.Models.Program)bindingSource.Current;
+            isEdit = true;
+            var form2 = new Form2(dbContext);
+            form2.Form1 = this;
+            form2.ShowDialog();
         }
 
         //private void exitToolStripMenuItem_Click(object sender, EventArgs e)
