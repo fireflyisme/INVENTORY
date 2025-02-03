@@ -32,6 +32,7 @@
             textBoxProgramDescription = new MaterialSkin.Controls.MaterialTextBox2();
             textBoxProgramDepartment = new MaterialSkin.Controls.MaterialTextBox2();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
             SuspendLayout();
             // 
             // textBoxProgramName
@@ -128,7 +129,7 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(211, 431);
+            materialButton1.Location = new Point(172, 423);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -141,11 +142,32 @@
             materialButton1.UseVisualStyleBackColor = true;
             materialButton1.Click += materialButton1_Click;
             // 
+            // materialButton2
+            // 
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(253, 423);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(64, 36);
+            materialButton2.TabIndex = 4;
+            materialButton2.Text = "DELETE";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(493, 514);
+            Controls.Add(materialButton2);
             Controls.Add(materialButton1);
             Controls.Add(textBoxProgramDepartment);
             Controls.Add(textBoxProgramDescription);
@@ -159,10 +181,10 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialTextBox2 textBoxProgramName;
-        private MaterialSkin.Controls.MaterialTextBox2 textBoxProgramDescription;
-        private MaterialSkin.Controls.MaterialTextBox2 textBoxProgramDepartment;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        public MaterialSkin.Controls.MaterialTextBox2 textBoxProgramName;
+        public MaterialSkin.Controls.MaterialTextBox2 textBoxProgramDescription;
+        public MaterialSkin.Controls.MaterialTextBox2 textBoxProgramDepartment;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }

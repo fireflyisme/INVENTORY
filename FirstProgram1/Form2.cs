@@ -18,6 +18,8 @@ namespace FirstProgram1
         public readonly IProgramRepository? dbContext;
         internal Form1 Form1;
 
+        public string message { get; internal set; }
+
         public Form2(IProgramRepository? dbContext)
         {
             InitializeComponent();
@@ -49,7 +51,7 @@ namespace FirstProgram1
             }
             dbContext.Save();
 
-            MessageBox.Show("Program is added successfully.",
+            MessageBox.Show(message,
                 "Adding Program",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -66,6 +68,11 @@ namespace FirstProgram1
                 textBoxProgramDescription.Text = Form1.ProgramEntity.Description;
                 textBoxProgramDepartment.Text = Form1.ProgramEntity.Department;
             }
+        }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,6 +38,7 @@
             panel1 = new Panel();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             imageList1 = new ImageList(components);
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
             materialTabControl1.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -112,6 +113,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(materialButton2);
             panel1.Controls.Add(materialButton1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -148,6 +150,27 @@
             imageList1.Images.SetKeyName(0, "dashboard.png");
             imageList1.Images.SetKeyName(1, "home-button.png");
             // 
+            // materialButton2
+            // 
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.Dock = DockStyle.Left;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(64, 0);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(64, 50);
+            materialButton2.TabIndex = 2;
+            materialButton2.Text = "Delete";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -180,5 +203,6 @@
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private Panel panel1;
         private DataGridView dataGridView1;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }
