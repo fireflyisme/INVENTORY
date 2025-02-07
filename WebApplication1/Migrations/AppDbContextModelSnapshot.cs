@@ -205,9 +205,8 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Program")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ProgramId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -228,6 +227,8 @@ namespace WebApplication1.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("ProgramId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -306,6 +307,15 @@ namespace WebApplication1.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("WebApplication1.Areas.Identity.Data.AppUser", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Program", "Program")
+                        .WithMany()
+                        .HasForeignKey("ProgramId");
+
+                    b.Navigation("Program");
                 });
 #pragma warning restore 612, 618
         }

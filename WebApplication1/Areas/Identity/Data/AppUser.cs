@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +13,8 @@ public class AppUser : IdentityUser
 {
     [Required]
     public string? Name { get; set; }
-    [Required]
-    public string? Program { get; set; }
+    [ForeignKey(nameof(ProgramId))]
+    public int? ProgramId { get; set; }
+    public virtual Models.Program Program { get; set; }
 }
 

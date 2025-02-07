@@ -12,8 +12,8 @@ using WebApplication1.Areas.Identity.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250130003912_Add_Department_Program")]
-    partial class Add_Department_Program
+    [Migration("20250207005245_initialDb")]
+    partial class initialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
