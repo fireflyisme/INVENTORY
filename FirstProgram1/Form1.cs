@@ -9,7 +9,6 @@ namespace FirstProgram1
 {
     public partial class Form1 : MaterialForm
     {
-        private int index;
         private BindingSource bindingSource;
         public readonly IProgramRepository dbContext;
         public bool isEdit = false;
@@ -70,6 +69,11 @@ namespace FirstProgram1
             MessageBox.Show("Program deleted successfully.");
 
             getPrograms();
+        }
+
+        private void materialMultiLineTextBox21_TextChanged(object sender, EventArgs e)
+        {
+            dbContext.GetAll(c => c.ProgramName == materialMultiLineTextBox21.Text.Trim());
         }
 
         //private void exitToolStripMenuItem_Click(object sender, EventArgs e)
