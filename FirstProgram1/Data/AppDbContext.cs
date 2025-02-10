@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstProgram1.Data
+namespace Inventory.Data
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {

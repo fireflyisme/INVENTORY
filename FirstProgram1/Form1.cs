@@ -1,11 +1,11 @@
-﻿using FirstProgram1.Data;
-using FirstProgram1.Properties;
+﻿using Inventory.Data;
+using Inventory.Properties;
 using InfastructureLayer.Repositories;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Unity.Injection;
 
-namespace FirstProgram1
+namespace Inventory
 {
     public partial class Form1 : MaterialForm
     {

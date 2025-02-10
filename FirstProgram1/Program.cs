@@ -1,9 +1,9 @@
-using FirstProgram1.Data;
+using Inventory.Data;
 using Unity.Lifetime;
 using Unity;
 using InfastructureLayer.Repositories;
 
-namespace FirstProgram1
+namespace Inventory
 {
     internal static class Program
     {

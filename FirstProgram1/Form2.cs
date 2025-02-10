@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FirstProgram1
+namespace Inventory
 {
     public partial class Form2 : MaterialForm
     {
