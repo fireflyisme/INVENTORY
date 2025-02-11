@@ -17,8 +17,17 @@ namespace Inventory
     {
         public readonly IProgramRepository? dbContext;
         internal Form1 Form1;
+        private string message1;
 
-        public string message { get; internal set; }
+        public string Getmessage()
+        {
+            return message1;
+        }
+
+        internal void Setmessage(string value)
+        {
+            message1 = value;
+        }
 
         public Form2(IProgramRepository? dbContext)
         {
@@ -51,7 +60,7 @@ namespace Inventory
             }
             dbContext.Save();
 
-            MessageBox.Show(message,
+            MessageBox.Show(Getmessage(),
                 "Adding Program",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
