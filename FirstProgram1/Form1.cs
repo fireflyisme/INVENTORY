@@ -4,29 +4,48 @@ using InfastructureLayer.Repositories;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Unity.Injection;
+using inventory;
+using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace Inventory
 {
-    public partial class Form1 : MaterialForm
+    public partial class Form1 : Form
     {
         private BindingSource bindingSource;
         public readonly IProgramRepository dbContext;
         public bool isEdit = false;
         public DomainLayer.Models.Program ProgramEntity;
+        private bool isDragging = false;
+        private SidebarManager sidebarManager;
         public Form1(IProgramRepository dbContext)
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
             this.dbContext = dbContext;
             bindingSource = new BindingSource();
+            sidebarManager = new SidebarManager(sidebarPanel, tabControl1);
+            this.Load += Form1_Load;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             getPrograms();
+            sidebarManager.ToggleSidebar();
+            sidebarManager.ToggleSidebar();
+
+            sidebarPanel.Refresh();
+            sidebarPanel.Invalidate();
+            sidebarPanel.Update();
+
+            guna2Panel1.Refresh();
+            guna2Panel1.Invalidate();
+            guna2Panel1.Update();
+
+            guna2Panel1.BringToFront();
+            sidebarPanel.BringToFront();
+
+            sidebarManager.ApplyTagColors();
+            sidebarManager.UpdateSidebarUI();
         }
 
         public void getPrograms()
@@ -75,6 +94,7 @@ namespace Inventory
         {
             dbContext.GetAll(c => c.ProgramName == materialMultiLineTextBox21.Text.Trim());
         }
+
 
         //private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         //{
