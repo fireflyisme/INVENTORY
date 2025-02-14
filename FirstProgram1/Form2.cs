@@ -65,7 +65,7 @@ namespace Inventory
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
-            Form1.getPrograms();
+           // Form1.getPrograms();
             Hide();
         }
 

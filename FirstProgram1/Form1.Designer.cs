@@ -531,9 +531,11 @@ namespace Inventory
             btnNotif.TabIndex = 1;
             // 
             // tabPage1
-            // 
+            //
+            //
+
             tabPage1.Controls.Add(dataGridView1);
-            tabPage1.Controls.Add(btnDelete);
+           // tabPage1.Controls.Add(btnDelete);
             tabPage1.Controls.Add(btnAdd);
             tabPage1.Controls.Add(txtSearch);
             tabPage1.Location = new Point(4, 29);
@@ -567,7 +569,7 @@ namespace Inventory
             btnDelete.Size = new Size(225, 56);
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
-            btnDelete.Click += btnDelete_Click;
+           // btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -584,7 +586,7 @@ namespace Inventory
             btnAdd.Size = new Size(225, 56);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Add";
-            btnAdd.Click += btnAdd_Click;
+           // btnAdd.Click += btnAdd_Click;
             // 
             // txtSearch
             // 

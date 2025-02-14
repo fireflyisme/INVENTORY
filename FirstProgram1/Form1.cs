@@ -1,12 +1,5 @@
-﻿using Inventory.Data;
-using Inventory.Properties;
-using InfastructureLayer.Repositories;
-using MaterialSkin;
-using MaterialSkin.Controls;
-using Unity.Injection;
+﻿using InfastructureLayer.Repositories;
 using inventory;
-using System.Windows.Forms;
-using Guna.UI2.WinForms;
 using System.Runtime.InteropServices;
 
 namespace Inventory
@@ -30,7 +23,7 @@ namespace Inventory
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            getPrograms();
+            //getPrograms();
             sidebarManager.ToggleSidebar();
             sidebarManager.ToggleSidebar();
 
@@ -94,12 +87,16 @@ namespace Inventory
         {
             sidebarManager.ToggleSidebar();
         }
+
+        /*
         public void getPrograms()
         {
             var programs = dbContext.GetAll();
             bindingSource.DataSource = programs;
             dataGridView1.DataSource = bindingSource;
-        }
+        }*/
+
+        /*
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ProgramEntity = (DomainLayer.Models.Program)bindingSource.Current;
@@ -109,14 +106,14 @@ namespace Inventory
             form2.Text = "Edit Program Information";
             form2.Setmessage("Program updated successfully.");
             form2.ShowDialog();
-        }
+        }*/
 
         private void materialMultiLineTextBox21_TextChanged(object sender, EventArgs e)
         {
             dbContext.GetAll(c => c.ProgramName == txtSearch.Text.Trim());
         }
 
-
+        /*
         private void btnAdd_Click(object sender, EventArgs e)
         {
             isEdit = false;
@@ -127,7 +124,9 @@ namespace Inventory
             form2.textBoxProgramName.Text = "";
             form2.Setmessage("Program added successfully.");
             form2.ShowDialog();
-        }
+        }*/
+
+        /*
         private void btnDelete_Click(object sender, EventArgs e)
         {
             ProgramEntity = (DomainLayer.Models.Program)bindingSource.Current;
@@ -138,6 +137,6 @@ namespace Inventory
             MessageBox.Show("Program deleted successfully.");
 
             getPrograms();
-        }
+        }*/
     }
 }
